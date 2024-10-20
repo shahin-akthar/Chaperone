@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+.list{
+    margin-right: 45px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 250px;
+    font-family: 'Poppins';
+    color: black;
+}
+
+.plant{
+    height: 300px;
+    width: 250px;
+}
+
+.view-btn{
+    background-color: #165315;
+    width: 250px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 20px;
+    padding: 8px;
+    border: none;
+}
+
+.name{
+    font-weight: 600;
+    font-size: 23px;
+    padding-top: 7px;
+}
+
+.maintenance{
+    color: #838383;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.rating-cont{
+    display: flex;
+    padding: 5px;
+}
+
+.star{
+    color: yellow;
+    padding-top: 5px;
+}
+
+.rupee-cont{
+    display: flex;
+    color: #5E5A5A;
+    text-decoration: line-through;
+    padding-right: 10px;
+}
+
+.rupee {
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.rupee-cont2{
+    display: flex;
+    color: #5E5A5A;
+    padding-right: 10px;
+}
+
+.price{
+    font-weight: bolder;
+}
+
+.cart-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buy-btn{
+    background-color: white;
+    color: #165315;
+    border-radius: 5px;
+    border: 1px solid #165315;
+    font-size: 15px;
+    font-weight: 600;
+}

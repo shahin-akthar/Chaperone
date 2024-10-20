@@ -1,3 +1,29 @@
+Chaperone
+    Overview
+        Plant Shop is a responsive web application that allows users to browse and search for various plant products. The app features a modern user interface, intuitive search functionality, and newsletter subscription. This project was developed using React.js for the frontend, and it supports searching and filtering products based on user input.
+
+    Features
+        Browse a collection of plant products with images, descriptions, and prices.
+        Search functionality to filter products based on the plant's name.
+        Responsive design for seamless experience across different devices.
+    Technologies Used
+        React.js: For building the user interface and handling the state.
+        CSS (Styled Components): For theming and responsive design.
+        HTML: For structuring the components.
+    Installation
+    Prerequisites
+    Before you begin, ensure you have the following installed on your machine:
+
+        Node.js (version 14 or higher)
+        npm or yarn (Node package manager)
+
+    Usage
+        Search Functionality
+        Use the search bar to filter plant products based on their names.
+        Type the first few letters of the plant you are looking for, and the results will be dynamically displayed.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

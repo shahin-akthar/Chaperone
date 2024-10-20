@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+.pagination{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+   margin-top: 0;
+}
+
+.non-active {
+    background-color: white;
+    font-family: 'Poppins';
+    font-size: 17px;
+    font-weight: 700;
+    padding: 5px;
+    color: #165315;
+    border: 1.5px solid #165315;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.active{
+    background-color: #165315;
+    font-family: 'Poppins';
+    font-size: 17px;
+    font-weight: 700;
+    padding: 5px;
+    color: white;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+}

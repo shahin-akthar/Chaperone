@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+.cart-btn{
+    background-color: #165315;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+
+.popup-container{
+    background-color: #F0FFE5;
+    height: 65vh;
+    width: 27vw;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.cart{
+    font-size: 20px;
+    padding-top: 10px;
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+
+.congrats{
+    font-size: 25px;
+    padding-top: 10px;
+    font-weight: 600;
+    font-family: 'Poppins';
+    color: #165315;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.cart-para{
+    font-size: 15px;
+    padding: 15px;
+    font-weight: 600;
+    font-family: 'Poppins';
+    color: #165315;
+    text-align: center;
+}
+
+.btn{
+    font-family: 'Poppins';
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    background-color: #165315;
+    padding: 10px;
+    border: none;
+    margin-top: 25px;
+    border-radius: 5px;
+    outline: none;
+}

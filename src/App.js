@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import {useState} from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import ThankYouPage from './components/ThankYouPage'; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [products] = useState([
+        { id: 1, name: 'Monstera', price: 299, image: 'https://s3-alpha-sig.figma.com/img/5d1d/9008/57a26487b27ba64aecadd2f4d7e83e50?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G1A-3swJ4YwcthBXqQLR~ciyuOmL1IZ7P40M1OLsKF~FiZA34DrWU36boYoYS39-CmQ2643Z76YmysIYXJTyGYJC7gKvauhhtEIvwaFnEh6hX-VZOn6tPtc9zViNZW5xgIRwcOagH7KwRYkrejo4XHzU8cO7qMPAsZab-4~j9jovvBM5g4Ttp9oTJX4iMtc8vEYTH1OY~vQ~FUvl~ABA2hbBHewQ8MqnQ-ihVEwZr9OFGJfsGAh7mWjVdNsUyvSmnaInIqMdOaXI7EJtH6oKjwtKZx5CBodSzI0o~gnW5wzkD8geFmhWKPiZ0eC4gIsnwZ9yi0BAg1M5oReXw8-jKw__', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance'},
+        { id: 2, name: 'Snake Plant', price: 250, image: 'https://s3-alpha-sig.figma.com/img/5b18/a5fd/8150f68f85e80b39ed12017b8222dd1a?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aJEMdDt63Ic-AZhILS7rtSPXp~mLctW5OcS-6xQlJzZWv4ojnH8bvAJvZvqhnUj9prGamLSkO43C~YZavmZzx2YhF7Pb30i85Bv46q~529q6O9K-OOyA6tNw1BhEdNEo8vYaKGLQtxcZqjynXVeQgje6ZHcuGPs5EiRAeYjS5SBTJ3cCeHX6pglqDK-D~7~aPUCLUjfIySX82h2a18V~8xTsWXaGd-5zrmSgyOE9IbBjelMqJBQ1TVKkw9BWx1uM5LCXv4NJKM-IUjy3LbvQpVN4JS1CElh5A4JZIEl41DhtoA9XzlXbGnhDZ6urCG2kHuUcjmi9E~1alns-YT7lxA__', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance'},
+        { id: 3, name: 'Spider Plant', price: 199, image: 'https://evergreenmart.in/cdn/shop/files/SpiderPlant_ChlorophytumComosum_-Air-PurifyingIndoorPlant-1.webp?v=1722244895', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance' },
+        { id: 4, name: 'Peace Lilly', price: 349, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptL3LBxuMcBUdVRM9rag4VTE_olyjJ2zhhg&s', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance' },
+        { id: 5, name: 'Pothos Plant', price: 249, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4x6cCVnA5okbljXNWaRv0MIT-oSQ8EcHilA&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium Maintenance' },
+        { id: 6, name: 'Fiddle Fig', price: 299, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNGOyCqxISGRfxSIblOssFW8BaUKt9adCgw&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium' },
+        { id: 7, name:  'Rubber Plant', price: 249, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4j96C97Q4qNo324PoCwBxEI6fRu0fRXtFQ&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium Maintenance' },
+        { id: 8, name: 'Bosten Firm', price: 349, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DPiNgeaBaxIKKADyVRHNNKq0fFcM_0THFg&s', rating: 4.9, door: 'Indoor', maintenance: 'High Maintenance' },
+        { id: 9, name: 'Lavender', price: 499, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJeGcRES8slhcyn4gP-Jp54HiZM7o-r77SXw&s', rating: 4.9, door: 'Outdoor', maintenance: 'Medium Maintenance' },
+        { id: 10, name: 'Orchid Plant', price: 399, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHMWGFExgJA-fiNbbvDs8ofhy1OxMAp6y0A&s', rating: 4.9, door: 'Indoor', maintenance: 'High Maintenance' },
+        
+        { id: 11, "name": "Orchid Plant", "price": 399, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHMWGFExgJA-fiNbbvDs8ofhy1OxMAp6y0A&s", "rating": 4.9, "door": "Indoor", "maintenance": "High Maintenance" },
+        { id: 12, "name": "Lavender", "price": 499, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJeGcRES8slhcyn4gP-Jp54HiZM7o-r77SXw&s", "rating": 4.9, "door": "Outdoor", "maintenance": "Medium Maintenance" },
+        { id: 13, "name": "Bosten Firm", "price": 349, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DPiNgeaBaxIKKADyVRHNNKq0fFcM_0THFg&s", "rating": 4.9, "door": "Indoor", "maintenance": "High Maintenance" },
+        { id: 14, "name": "Rubber Plant", "price": 249, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4j96C97Q4qNo324PoCwBxEI6fRu0fRXtFQ&s", "rating": 4.9, "door": "Indoor", "maintenance": "Medium Maintenance" },
+        { id: 15, "name": "Fiddle Fig", "price": 299, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNGOyCqxISGRfxSIblOssFW8BaUKt9adCgw&s", "rating": 4.9, "door": "Indoor", "maintenance": "Medium" },
+        { id: 16, "name": "Pothos Plant", "price": 249, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4x6cCVnA5okbljXNWaRv0MIT-oSQ8EcHilA&s", "rating": 4.9, "door": "Indoor", "maintenance": "Medium Maintenance" },
+        { id: 17, "name": "Peace Lilly", "price": 349, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptL3LBxuMcBUdVRM9rag4VTE_olyjJ2zhhg&s", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+        { id: 18, "name": "Spider Plant", "price": 199, "image": "https://evergreenmart.in/cdn/shop/files/SpiderPlant_ChlorophytumComosum_-Air-PurifyingIndoorPlant-1.webp?v=1722244895", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+        { id: 19, "name": "Snake Plant", "price": 250, "image": "https://s3-alpha-sig.figma.com/img/5b18/a5fd/8150f68f85e80b39ed12017b8222dd1a?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aJEMdDt63Ic-AZhILS7rtSPXp~mLctW5OcS-6xQlJzZWv4ojnH8bvAJvZvqhnUj9prGamLSkO43C~YZavmZzx2YhF7Pb30i85Bv46q~529q6O9K-OOyA6tNw1BhEdNEo8vYaKGLQtxcZqjynXVeQgje6ZHcuGPs5EiRAeYjS5SBTJ3cCeHX6pglqDK-D~7~aPUCLUjfIySX82h2a18V~8xTsWXaGd-5zrmSgyOE9IbBjelMqJBQ1TVKkw9BWx1uM5LCXv4NJKM-IUjy3LbvQpVN4JS1CElh5A4JZIEl41DhtoA9XzlXbGnhDZ6urCG2kHuUcjmi9E~1alns-YT7lxA__", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+        { id: 20, "name": "Monstera", "price": 299, "image": "https://s3-alpha-sig.figma.com/img/5d1d/9008/57a26487b27ba64aecadd2f4d7e83e50?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G1A-3swJ4YwcthBXqQLR~ciyuOmL1IZ7P40M1OLsKF~FiZA34DrWU36boYoYS39-CmQ2643Z76YmysIYXJTyGYJC7gKvauhhtEIvwaFnEh6hX-VZOn6tPtc9zViNZW5xgIRwcOagH7KwRYkrejo4XHzU8cO7qMPAsZab-4~j9jovvBM5g4Ttp9oTJX4iMtc8vEYTH1OY~vQ~FUvl~ABA2hbBHewQ8MqnQ-ihVEwZr9OFGJfsGAh7mWjVdNsUyvSmnaInIqMdOaXI7EJtH6oKjwtKZx5CBodSzI0o~gnW5wzkD8geFmhWKPiZ0eC4gIsnwZ9yi0BAg1M5oReXw8-jKw__", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+    
+        { id: 21, name: 'Monstera', price: 299, image: 'https://s3-alpha-sig.figma.com/img/5d1d/9008/57a26487b27ba64aecadd2f4d7e83e50?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G1A-3swJ4YwcthBXqQLR~ciyuOmL1IZ7P40M1OLsKF~FiZA34DrWU36boYoYS39-CmQ2643Z76YmysIYXJTyGYJC7gKvauhhtEIvwaFnEh6hX-VZOn6tPtc9zViNZW5xgIRwcOagH7KwRYkrejo4XHzU8cO7qMPAsZab-4~j9jovvBM5g4Ttp9oTJX4iMtc8vEYTH1OY~vQ~FUvl~ABA2hbBHewQ8MqnQ-ihVEwZr9OFGJfsGAh7mWjVdNsUyvSmnaInIqMdOaXI7EJtH6oKjwtKZx5CBodSzI0o~gnW5wzkD8geFmhWKPiZ0eC4gIsnwZ9yi0BAg1M5oReXw8-jKw__', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance'},
+        { id: 22, name: 'Snake Plant', price: 250, image: 'https://s3-alpha-sig.figma.com/img/5b18/a5fd/8150f68f85e80b39ed12017b8222dd1a?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aJEMdDt63Ic-AZhILS7rtSPXp~mLctW5OcS-6xQlJzZWv4ojnH8bvAJvZvqhnUj9prGamLSkO43C~YZavmZzx2YhF7Pb30i85Bv46q~529q6O9K-OOyA6tNw1BhEdNEo8vYaKGLQtxcZqjynXVeQgje6ZHcuGPs5EiRAeYjS5SBTJ3cCeHX6pglqDK-D~7~aPUCLUjfIySX82h2a18V~8xTsWXaGd-5zrmSgyOE9IbBjelMqJBQ1TVKkw9BWx1uM5LCXv4NJKM-IUjy3LbvQpVN4JS1CElh5A4JZIEl41DhtoA9XzlXbGnhDZ6urCG2kHuUcjmi9E~1alns-YT7lxA__', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance'},
+        { id: 23, name: 'Spider Plant', price: 199, image: 'https://evergreenmart.in/cdn/shop/files/SpiderPlant_ChlorophytumComosum_-Air-PurifyingIndoorPlant-1.webp?v=1722244895', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance' },
+        { id: 24, name: 'Peace Lilly', price: 349, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptL3LBxuMcBUdVRM9rag4VTE_olyjJ2zhhg&s', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance' },
+        { id: 25, name: 'Pothos Plant', price: 249, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4x6cCVnA5okbljXNWaRv0MIT-oSQ8EcHilA&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium Maintenance' },
+        { id: 26, name: 'Fiddle Fig', price: 299, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNGOyCqxISGRfxSIblOssFW8BaUKt9adCgw&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium' },
+        { id: 27, name:  'Rubber Plant', price: 249, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4j96C97Q4qNo324PoCwBxEI6fRu0fRXtFQ&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium Maintenance' },
+        { id: 28, name: 'Bosten Firm', price: 349, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DPiNgeaBaxIKKADyVRHNNKq0fFcM_0THFg&s', rating: 4.9, door: 'Indoor', maintenance: 'High Maintenance' },
+        { id: 29, name: 'Lavender', price: 499, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJeGcRES8slhcyn4gP-Jp54HiZM7o-r77SXw&s', rating: 4.9, door: 'Outdoor', maintenance: 'Medium Maintenance' },
+        { id: 30, name: 'Orchid Plant', price: 399, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHMWGFExgJA-fiNbbvDs8ofhy1OxMAp6y0A&s', rating: 4.9, door: 'Indoor', maintenance: 'High Maintenance' },
+        
+        { id: 11, "name": "Orchid Plant", "price": 399, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHMWGFExgJA-fiNbbvDs8ofhy1OxMAp6y0A&s", "rating": 4.9, "door": "Indoor", "maintenance": "High Maintenance" },
+        { id: 12, "name": "Lavender", "price": 499, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJeGcRES8slhcyn4gP-Jp54HiZM7o-r77SXw&s", "rating": 4.9, "door": "Outdoor", "maintenance": "Medium Maintenance" },
+        { id: 13, "name": "Bosten Firm", "price": 349, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DPiNgeaBaxIKKADyVRHNNKq0fFcM_0THFg&s", "rating": 4.9, "door": "Indoor", "maintenance": "High Maintenance" },
+        { id: 14, "name": "Rubber Plant", "price": 249, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4j96C97Q4qNo324PoCwBxEI6fRu0fRXtFQ&s", "rating": 4.9, "door": "Indoor", "maintenance": "Medium Maintenance" },
+        { id: 15, "name": "Fiddle Fig", "price": 299, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNGOyCqxISGRfxSIblOssFW8BaUKt9adCgw&s", "rating": 4.9, "door": "Indoor", "maintenance": "Medium" },
+        { id: 16, "name": "Pothos Plant", "price": 249, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4x6cCVnA5okbljXNWaRv0MIT-oSQ8EcHilA&s", "rating": 4.9, "door": "Indoor", "maintenance": "Medium Maintenance" },
+        { id: 17, "name": "Peace Lilly", "price": 349, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptL3LBxuMcBUdVRM9rag4VTE_olyjJ2zhhg&s", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+        { id: 18, "name": "Spider Plant", "price": 199, "image": "https://evergreenmart.in/cdn/shop/files/SpiderPlant_ChlorophytumComosum_-Air-PurifyingIndoorPlant-1.webp?v=1722244895", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+        { id: 19, "name": "Snake Plant", "price": 250, "image": "https://s3-alpha-sig.figma.com/img/5b18/a5fd/8150f68f85e80b39ed12017b8222dd1a?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aJEMdDt63Ic-AZhILS7rtSPXp~mLctW5OcS-6xQlJzZWv4ojnH8bvAJvZvqhnUj9prGamLSkO43C~YZavmZzx2YhF7Pb30i85Bv46q~529q6O9K-OOyA6tNw1BhEdNEo8vYaKGLQtxcZqjynXVeQgje6ZHcuGPs5EiRAeYjS5SBTJ3cCeHX6pglqDK-D~7~aPUCLUjfIySX82h2a18V~8xTsWXaGd-5zrmSgyOE9IbBjelMqJBQ1TVKkw9BWx1uM5LCXv4NJKM-IUjy3LbvQpVN4JS1CElh5A4JZIEl41DhtoA9XzlXbGnhDZ6urCG2kHuUcjmi9E~1alns-YT7lxA__", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+        { id: 20, "name": "Monstera", "price": 299, "image": "https://s3-alpha-sig.figma.com/img/5d1d/9008/57a26487b27ba64aecadd2f4d7e83e50?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G1A-3swJ4YwcthBXqQLR~ciyuOmL1IZ7P40M1OLsKF~FiZA34DrWU36boYoYS39-CmQ2643Z76YmysIYXJTyGYJC7gKvauhhtEIvwaFnEh6hX-VZOn6tPtc9zViNZW5xgIRwcOagH7KwRYkrejo4XHzU8cO7qMPAsZab-4~j9jovvBM5g4Ttp9oTJX4iMtc8vEYTH1OY~vQ~FUvl~ABA2hbBHewQ8MqnQ-ihVEwZr9OFGJfsGAh7mWjVdNsUyvSmnaInIqMdOaXI7EJtH6oKjwtKZx5CBodSzI0o~gnW5wzkD8geFmhWKPiZ0eC4gIsnwZ9yi0BAg1M5oReXw8-jKw__", "rating": 4.9, "door": "Indoor", "maintenance": "Low Maintenance" },
+    
+        { id: 41, name: 'Monstera', price: 299, image: 'https://s3-alpha-sig.figma.com/img/5d1d/9008/57a26487b27ba64aecadd2f4d7e83e50?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G1A-3swJ4YwcthBXqQLR~ciyuOmL1IZ7P40M1OLsKF~FiZA34DrWU36boYoYS39-CmQ2643Z76YmysIYXJTyGYJC7gKvauhhtEIvwaFnEh6hX-VZOn6tPtc9zViNZW5xgIRwcOagH7KwRYkrejo4XHzU8cO7qMPAsZab-4~j9jovvBM5g4Ttp9oTJX4iMtc8vEYTH1OY~vQ~FUvl~ABA2hbBHewQ8MqnQ-ihVEwZr9OFGJfsGAh7mWjVdNsUyvSmnaInIqMdOaXI7EJtH6oKjwtKZx5CBodSzI0o~gnW5wzkD8geFmhWKPiZ0eC4gIsnwZ9yi0BAg1M5oReXw8-jKw__', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance'},
+        { id: 42, name: 'Snake Plant', price: 250, image: 'https://s3-alpha-sig.figma.com/img/5b18/a5fd/8150f68f85e80b39ed12017b8222dd1a?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aJEMdDt63Ic-AZhILS7rtSPXp~mLctW5OcS-6xQlJzZWv4ojnH8bvAJvZvqhnUj9prGamLSkO43C~YZavmZzx2YhF7Pb30i85Bv46q~529q6O9K-OOyA6tNw1BhEdNEo8vYaKGLQtxcZqjynXVeQgje6ZHcuGPs5EiRAeYjS5SBTJ3cCeHX6pglqDK-D~7~aPUCLUjfIySX82h2a18V~8xTsWXaGd-5zrmSgyOE9IbBjelMqJBQ1TVKkw9BWx1uM5LCXv4NJKM-IUjy3LbvQpVN4JS1CElh5A4JZIEl41DhtoA9XzlXbGnhDZ6urCG2kHuUcjmi9E~1alns-YT7lxA__', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance'},
+        { id: 43, name: 'Spider Plant', price: 199, image: 'https://evergreenmart.in/cdn/shop/files/SpiderPlant_ChlorophytumComosum_-Air-PurifyingIndoorPlant-1.webp?v=1722244895', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance' },
+        { id: 44, name: 'Peace Lilly', price: 349, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptL3LBxuMcBUdVRM9rag4VTE_olyjJ2zhhg&s', rating: 4.9, door: 'Indoor', maintenance: 'Low Maintenance' },
+        { id: 45, name: 'Pothos Plant', price: 249, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4x6cCVnA5okbljXNWaRv0MIT-oSQ8EcHilA&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium Maintenance' },
+        { id: 46, name: 'Fiddle Fig', price: 299, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNGOyCqxISGRfxSIblOssFW8BaUKt9adCgw&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium' },
+        { id: 47, name:  'Rubber Plant', price: 249, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4j96C97Q4qNo324PoCwBxEI6fRu0fRXtFQ&s', rating: 4.9, door: 'Indoor', maintenance: 'Medium Maintenance' },
+        { id: 48, name: 'Bosten Firm', price: 349, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DPiNgeaBaxIKKADyVRHNNKq0fFcM_0THFg&s', rating: 4.9, door: 'Indoor', maintenance: 'High Maintenance' },
+        { id: 49, name: 'Lavender', price: 499, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJeGcRES8slhcyn4gP-Jp54HiZM7o-r77SXw&s', rating: 4.9, door: 'Outdoor', maintenance: 'Medium Maintenance' },
+        { id: 50, name: 'Orchid Plant', price: 399, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHMWGFExgJA-fiNbbvDs8ofhy1OxMAp6y0A&s', rating: 4.9, door: 'Indoor', maintenance: 'High Maintenance' }
+    ]);
+
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/" render={(props) => <Home {...props} products={products} />} />
+                <Route exact path="/thankyou-page/:name" render={(props) => <ThankYouPage {...props} products={products} />} />
+            </Switch>
+        </Router>
+    );
+};
 
 export default App;

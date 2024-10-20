@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@400&display=swap');
+
+.thankyou-bg-container{
+    height: 100vh;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.contact {
+    background-color: #165315;
+    color: white;
+    display: flex;
+    align-items: center;         
+    font-family: 'Inter';
+    padding: 5px;
+    font-size: 15px;
+    width: 100%;                   
+    justify-content: space-between; 
+}
+
+.shipping {
+    flex: 1;                       
+    text-align: center;            
+}
+
+.phone-no {      
+    text-align: right;
+    padding-right: 35px;            
+}
+
+.thank-you-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewed-plant{
+    height: 50vh;
+    width: 25vw;
+    border-radius: 5px;
+}
+
+.thankyou-msg{
+    font-family: 'Poppins';
+    font-size: 30px;
+    font-weight: 600;
+    color: #165315;
+    padding-top: 20px;
+}
+
+.back-btn{
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: #165315;
+    padding: 10px;
+    border: none;
+    margin-top: 25px;
+    border-radius: 5px;
+    outline: none;
+}
